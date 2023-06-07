@@ -1,9 +1,11 @@
 var game = document.querySelector(".game");
+var texto = document.getElementById("texto");
 var circulo = document.querySelector(".circulo");
 var circuloLeft = parseInt(window.getComputedStyle(circulo).getPropertyValue("left"));
 var circuloBottom = parseInt(window.getComputedStyle(circulo).getPropertyValue("bottom"));
 var score = 0;  
 var flor_svg = document.getElementById("Capa_1");
+
 
 function randomcolor() {
     return Math.floor(Math.random() * 255);
@@ -45,7 +47,10 @@ function generateFlores (){
         if (florBottom < circuloBottom + 50 && florBottom > circuloBottom && florLeft > circuloLeft - 30 && florLeft < circuloLeft + 80 ) {
             clearInterval(fallInterval);
             score++;
+            console.log(score);
+            texto.textContent="PUNTAJE  "+score;
         }
+
         if (florBottom < circuloBottom){
             alert("Perdiste :( Tu puntaje es "+score);
             clearInterval(fallInterval);
@@ -59,6 +64,7 @@ function generateFlores (){
     var fallInterval = setInterval(fallDownFlor, 20); // el tiempo que hay entre cada uno que cae 
     var florTimeout = setTimeout(generateFlores, 2000); // se modiifica este número para que caigan más rápido
 }
+
 
 generateFlores(); 
 

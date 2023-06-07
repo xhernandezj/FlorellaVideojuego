@@ -74,4 +74,9 @@ left: calc(50% - 25px);
 p{
     font-family: "pixel";  
     padding: 20px;
+    display: inline-block;
+}
+
+#texto {
+    text-align: right;
 }
